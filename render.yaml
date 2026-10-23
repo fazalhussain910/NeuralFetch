@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: neuralfetch
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: qwen/qwen3.8-27b
+      - key: GROQ_MAX_TOKENS
+        value: "512"
+      - key: QDRANT_STORAGE_PATH
+        value: "./qdrant_storage"
+      - key: QDRANT_COLLECTION
+        value: "web_knowledge_league"
